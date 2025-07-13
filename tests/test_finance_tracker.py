@@ -82,8 +82,8 @@ def test_load_from_csv(tmpdir):
     with open(filename, mode="w", newline="", encoding="utf-8") as file:
         writer = csv.writer(file)
         writer.writerow(["Date", "Type", "Category", "Amount"])
-        writer.writerow(["2023-10-01", "expense", "Еда", "100"])
-        writer.writerow(["2023-10-01", "income", "Зарплата", "50000"])
+        writer.writerow(["2023-10-01", "expense", "Еда", "100.0"])
+        writer.writerow(["2023-10-01", "income", "Зарплата", "50000.0"])
     
     # Загружаем данные из файла
     tracker = FinanceTracker()
@@ -91,9 +91,9 @@ def test_load_from_csv(tmpdir):
 
     # Проверяем, что данные загружены корректно
     assert len(tracker.transactions) == 2
-    assert tracker.transactions[0].amount == 100
+    assert tracker.transactions[0].amount == 100.0
     assert tracker.transactions[0].category == "Еда"
-    assert tracker.transactions[1].amount == 50000
+    assert tracker.transactions[1].amount == 50000.0
     assert tracker.transactions[1].category == "Зарплата"
 
 
@@ -108,7 +108,7 @@ def test_delete_transaction_invalid_index():
 
     # Проверяем, что транзакция не удалена
     assert len(tracker.transactions) == 1
-    assert tracker.transactions[0].amount == 100
+    assert tracker.transactions[0].amount == 100.0
     assert tracker.transactions[0].category == "Еда"
 
 
@@ -124,5 +124,5 @@ def test_edit_transaction_invalid_index():
 
     # Проверяем, что транзакция не изменилась
     assert len(tracker.transactions) == 1
-    assert tracker.transactions[0].amount == 100
+    assert tracker.transactions[0].amount == 100.0
     assert tracker.transactions[0].category == "Еда"
