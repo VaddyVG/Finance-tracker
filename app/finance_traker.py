@@ -69,7 +69,6 @@ class FinanceTracker:
                 self._writer_header(file, mode)
                 new_transactions = self._get_new_transaction(filepath, mode)
                 self._write_transactions(file, new_transactions)
-            print(f"Данные успешно экспортированы в {filepath}.")
         except Exception as e:
             print(f"Ошибка при экспорте данных: {e}")
     
