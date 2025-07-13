@@ -4,7 +4,7 @@ from datetime import datetime
 class Transaction:
     """Класс представляющий транзакцию"""
     def __init__(self, amount, category, date, transaction_type):
-        self.amount = amount
+        self.amount = float(amount)
         self.category = category
         self.date = datetime.strptime(date, "%Y-%m-%d")
         self.type = transaction_type
