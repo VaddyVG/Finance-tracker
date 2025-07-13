@@ -14,5 +14,5 @@ def test_transaction_creation():
 def test_transaction_str():
     """Проверяет строковое представление транзакции."""
     transaction = Transaction(100, "Еда", "2023-10-01", "expense")
-    expected_str = "2023-10-01 | EXPENSE | Еда: 100 руб."
+    expected_str = "2023-10-01 | EXPENSE | Еда: 100.0 руб."
     assert str(transaction) == expected_str

@@ -72,8 +72,8 @@ def test_export_to_csv(tmpdir):
         reader = csv.reader(file)
         rows = list(reader)
         assert rows[0] == ["Date", "Type", "Category", "Amount"]
-        assert rows[1] == ["2023-10-01", "expense", "Еда", "100"]
-        assert rows[2] == ["2023-10-01", "income", "Зарплата", "50000"]
+        assert rows[1] == ["2023-10-01", "expense", "Еда", "100.0"]
+        assert rows[2] == ["2023-10-01", "income", "Зарплата", "50000.0"]
 
 
 def test_load_from_csv(tmpdir):
