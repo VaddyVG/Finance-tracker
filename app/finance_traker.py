@@ -148,7 +148,10 @@ class FinanceTracker:
         categories = {}
         for t in self.transactions:
             if t.type == "expense":
-                categories[t.category] == categories.get(t.category, 0) + t.amount
+                categories[t.category] = categories.get(t.category, 0) + t.amount
+        if not categories:
+            print("Нет данных для построения графика расходов")
+            return
 
         plt.figure(figsize=(8, 8))
         plt.pie(categories.values(), labels=categories.keys(), autopct="%1.1f%%", startangle=140)
