@@ -23,7 +23,7 @@ def test_delete_transaction():
     tracker.add_transaction(transaction1)
     tracker.add_transaction(transaction2)
 
-    tracker.delete_transaction(0)
+    tracker.delete_transaction(1)
 
     assert len(tracker.transactions) == 1
     assert tracker.transactions[0].amount == 50000
@@ -104,7 +104,7 @@ def test_delete_transaction_invalid_index():
     tracker.add_transaction(transaction)
 
     # Пытаемся удалить несуществующую транзакцию
-    tracker.delete_transaction(1)  # Неверный индекс
+    tracker.delete_transaction(2)  # Неверный индекс
 
     # Проверяем, что транзакция не удалена
     assert len(tracker.transactions) == 1

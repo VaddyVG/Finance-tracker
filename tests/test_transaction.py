@@ -5,7 +5,7 @@ from datetime import datetime
 def test_transaction_creation():
     """Проверяет, что транзакция создаётся корректно."""
     transaction = Transaction(100, "Еда", "2023-10-01", "expense")
-    assert transaction.amount == 100
+    assert transaction.amount == 100.0
     assert transaction.category == "Еда"
     assert transaction.date == datetime.strptime("2023-10-01", "%Y-%m-%d")
     assert transaction.type == "expense"

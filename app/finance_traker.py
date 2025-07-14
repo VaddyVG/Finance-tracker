@@ -19,7 +19,7 @@ class FinanceTracker:
         """Добавление новой транзакции в список."""
         self.transactions.append(transaction)
 
-    def edit_transaction(self, index, new_transaction, filename="data.csv"):
+    def edit_transaction(self, index: int, new_transaction, filename: str = "data.csv") -> None:
         """
         Редактирует транзакцию по индексу.
         :param index: Индекс транзакции.
@@ -29,16 +29,16 @@ class FinanceTracker:
             self.transactions[index] = new_transaction
             self.export_to_csv(filename)
 
-    def delete_transaction(self, index, filename="data.csv"):
+    def delete_transaction(self, index: int, filename: str = "data.csv") -> None:
         """
         Удаляет транзакцию по индексу
-        :param index: Индекс транзакции
+        :param index: Индекс транзакции (начинается с 1)
         """
-        if 0 <= index < len(self.transactions):
-            self.transactions.pop(index)
+        if 1 <= index <= len(self.transactions):
+            self.transactions.pop(index - 1)
             self.export_to_csv(filename)
 
-    def get_balance(self):
+    def get_balance(self) -> float:
         """Расчет текущего баланса (доходы минус расходы)."""
         income = sum(t.amount for t in self.transactions if t.type == "income")
         expense = sum(t.amount for t in self.transactions if t.type == "expense")
@@ -48,7 +48,7 @@ class FinanceTracker:
         """Получение всех транзакций по указанной категории."""
         return [t for t in self.transactions if t.category == category]
 
-    def get_monthly_report(self, month, year):
+    def get_monthly_report(self, month: int, year: int):
         """Получение всех транзакций за указанный месяц и год."""
         monthly_transactions = [
             t for t in self.transactions

@@ -12,11 +12,11 @@ def delete_transaction_ui(tracker: FinanceTracker) -> None:
             return
 
         print("\nСписок транзакций:")
-        for i, t in enumerate(tracker.transactions):
+        for i, t in enumerate(tracker.transactions, 1):
             print(f"{i}. {t}")
 
         index = int(prompt("\nВведите индекс транзакции для удаления: "))
-        if not (0 <= index < len(tracker.transactions)):
+        if not (0 <= index <= len(tracker.transactions)):
             print("❌ Неверный индекс транзакции.")
             return
 
