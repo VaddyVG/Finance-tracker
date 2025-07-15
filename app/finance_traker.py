@@ -25,8 +25,8 @@ class FinanceTracker:
         :param index: Индекс транзакции.
         :param new_transaction: Новая транзакция.
         """
-        if 0 <= index < len(self.transactions):
-            self.transactions[index] = new_transaction
+        if 1 <= index <= len(self.transactions):
+            self.transactions[index - 1] = new_transaction
             self.export_to_csv(filename)
 
     def delete_transaction(self, index: int, filename: str = "data.csv") -> None:

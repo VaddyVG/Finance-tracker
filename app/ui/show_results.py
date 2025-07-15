@@ -13,7 +13,7 @@ def show_balance_ui(tracker: FinanceTracker):
 
 def show_monthly_report_ui(tracker: FinanceTracker) -> None:
     """Функция для показа отчета за месяц."""
-    common.display_header("Отчета за месяц")
+    common.display_header("Отчет за месяц")
     try:
         current_year = datetime.now().year
         year = int(prompt(f"Введите год (по умолчанию {current_year}): ") or current_year)

@@ -40,10 +40,10 @@ def test_edit_transaction():
     tracker.add_transaction(transaction2)
 
     new_transaction = Transaction(200, "Транспорт", "2023-10-02", "expense")
-    tracker.edit_transaction(0, new_transaction)
+    tracker.edit_transaction(1, new_transaction)
 
     assert len(tracker.transactions) == 2
-    assert tracker.transactions[0].amount == 200
+    assert tracker.transactions[0].amount == 200.0
     assert tracker.transactions[0].category == "Транспорт"
     assert tracker.transactions[0].date == datetime.strptime("2023-10-02", "%Y-%m-%d")
     assert tracker.transactions[0].type == "expense"
@@ -120,7 +120,7 @@ def test_edit_transaction_invalid_index():
 
     # Пытаемся редактировать несуществующую транзакцию
     new_transaction = Transaction(200, "Транспорт", "2023-10-02", "expense")
-    tracker.edit_transaction(1, new_transaction)
+    tracker.edit_transaction(2, new_transaction)
 
     # Проверяем, что транзакция не изменилась
     assert len(tracker.transactions) == 1

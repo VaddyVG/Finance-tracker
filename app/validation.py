@@ -18,7 +18,7 @@ class DateValidator(Validator):
         try:
             datetime.strptime(document.text, "%Y-%m-%d")
         except ValueError:
-            raise ValidationError(message="Неверный формат даты. Используйте ГГГГ-ММ-ДД (например: 2023-12-31)")
+            raise ValidationError(message="Используйте ГГГГ-ММ-ДД (например: 2023-12-31)")
 
 
 type_completer = WordCompleter(["income", "expense"], ignore_case=True)
