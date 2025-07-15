@@ -16,7 +16,7 @@ def delete_transaction_ui(tracker: FinanceTracker) -> None:
             print(f"{i}. {t}")
 
         index = int(prompt("\nВведите индекс транзакции для удаления: "))
-        if not (0 <= index <= len(tracker.transactions)):
+        if not (1 <= index <= len(tracker.transactions)):
             print("❌ Неверный индекс транзакции.")
             return
 
