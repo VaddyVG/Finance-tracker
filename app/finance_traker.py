@@ -22,7 +22,7 @@ class FinanceTracker:
     def edit_transaction(self, index: int, new_transaction, filename: str = "data.csv") -> None:
         """
         Редактирует транзакцию по индексу.
-        :param index: Индекс транзакции.
+        :param index: Индекс транзакции (начинается с 1).
         :param new_transaction: Новая транзакция.
         """
         if 1 <= index <= len(self.transactions):
